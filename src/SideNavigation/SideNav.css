@@ -1,0 +1,36 @@
+.videos {
+  min-width: 240px;
+  height: 40px;
+  border: none;
+}
+button {
+  background-color: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+}
+/* header,
+main,
+footer {
+  padding-left: 240px;
+}
+.submit-body {
+  padding: 5px;
+} */
+/* .video-container {
+  min-width: 100px;
+  background-color: lightslategray;
+  height: 100px;
+} */
+@media only screen and (max-width: 992px) {
+  header,
+  main,
+  footer {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  header,
+  main,
+  footer {
+    padding-left: 0;
+  }
+}
