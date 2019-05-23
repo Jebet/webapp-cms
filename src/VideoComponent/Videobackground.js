@@ -24,9 +24,6 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
     minWidth: 350
   },
-  menu: {
-    width: 200
-  },
   cssRoot: {
     color: theme.palette.getContrastText(purple[500]),
     backgroundColor: purple[500],
@@ -39,34 +36,26 @@ const styles = theme => ({
 const category = [
   {
     value: "PAP",
-    label: "PAP"
+    label: "P.A.P"
   },
   {
     value: "Konnect",
     label: "Konnect"
   },
   {
-    value: "HMBA",
-    label: "Hmba"
-  },
-  {
-    value: "Web-App",
-    label: "WebApp"
+    value: "Web App",
+    label: "Webapp"
   }
 ];
 
 class Videobackground extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      category: "PAP"
+      name: "",
+      category: ""
     };
   }
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
   render() {
     const { classes } = this.props;
 
@@ -86,12 +75,11 @@ class Videobackground extends React.Component {
           <Grid item xs={12} sm={4}>
             {/* <Paper className={classes.paper}> */}
             <TextField
-              id="outlined-email-input"
-              label="Email"
+              id="outlined-mind-input"
+              label="What's on your mind?"
               className={classes.textField}
               type="text"
               name="What's on your mind?"
-              autoComplete="email"
               margin="normal"
               variant="outlined"
             />
@@ -102,6 +90,7 @@ class Videobackground extends React.Component {
 
           <Grid item xs={12} sm={4}>
             <TextField
+              style={{ position: "relative", bottom: "300px" }}
               id="filled-select-category"
               select
               label="Select Category"
@@ -115,7 +104,7 @@ class Videobackground extends React.Component {
               }}
               helperText="Please select your category"
               margin="normal"
-              variant="filled"
+              variant="outlined"
             >
               {category.map(option => (
                 <MenuItem key={option.value} value={option.value}>
