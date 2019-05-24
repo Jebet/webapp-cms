@@ -26,7 +26,7 @@ import Videobackground from "../VideoComponent/Videobackground";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Video from "../VideoComponent/Videobackground";
 import "./SideNav.css";
-import Tips from "../Topic/newTip";
+import Tips from "../Tips/newTip";
 
 const drawerWidth = 240;
 
@@ -145,7 +145,7 @@ class PersistentDrawerLeft extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              ADD NEW VIDEOS
+              SHUJAAZ C.M.S
             </Typography>
           </Toolbar>
         </AppBar>
@@ -170,10 +170,15 @@ class PersistentDrawerLeft extends React.Component {
           </div>
           <Divider />
           <List style={{ color: "white" }}>
-            {["Videos", "Articles", "Tips", "Images"].map((text, index) => (
+            {[
+              <Link to="/video">Videos</Link>,
+              "Articles",
+              <Link to="/tips">Tips</Link>,
+              "Images"
+            ].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon style={{ color: "white", fontWeight: "500" }}>
-                  {index % 4 === 0 ? <VideocamIcon /> : <BookIcon />}
+                  {index % 2 === 0 ? <VideocamIcon /> : <BookIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
