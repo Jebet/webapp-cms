@@ -4,13 +4,14 @@ import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
 import "../VideoComponent/mainContent.css";
 import Videobackground from "../VideoComponent/Videobackground";
 
 const styles = {
   card: {
     minWidth: 255,
-    height: 425,
+    height: 505,
     padding: "5px"
   },
 
@@ -24,12 +25,14 @@ const styles = {
 
 function mainContent(props) {
   const { classes } = props;
-  // const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <div className="main-container">
-      <Card className={classes.card}>
+      <Card className={classes.card} style={{}}>
         <CardContent>
+          <Typography className={"heading"} variant={"h5"} gutterBottom>
+            ADD NEW VIDEO:
+          </Typography>
           <Videobackground />
         </CardContent>
       </Card>
