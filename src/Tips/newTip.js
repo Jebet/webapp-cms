@@ -44,7 +44,6 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     })
-    // marginLeft: -drawerWidth
   },
   contentShift: {
     transition: theme.transitions.create("margin", {
@@ -57,7 +56,6 @@ const styles = theme => ({
     fontSize: "3rem",
     "@media (min-width:600px)": {
       fontSize: "4.5rem"
-      // color: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)"
     },
     [theme.breakpoints.up("md")]: {
       fontSize: "6rem"
@@ -149,16 +147,6 @@ class Tips extends React.Component {
                       height: "230px"
                     }}
                   />
-                  {/* <Paper
-                    className={classes.paper}
-                    style={{
-                      position: "relative",
-                      bottom: "340px",
-                      height: "130px"
-                    }}
-                  >
-                    Description
-                  </Paper> */}
 
                   <Button
                     variant="contained"
@@ -170,13 +158,13 @@ class Tips extends React.Component {
                       position: "relative",
                       backgroundcolor: "purple",
                       float: "right",
-                      bottom: "313px"
+                      bottom: "313px",
+                      right: "25px"
                     }}
                   >
                     CREATE
                   </Button>
 
-                  {/* <Grid item xs={12} sm={4} > */}
                   <div className="checkbox-wrapper" col-sm-4>
                     <FormGroup row>
                       <FormControlLabel
@@ -246,7 +234,6 @@ class Tips extends React.Component {
                       />
                     </FormGroup>
                   </div>
-                  {/* </Grid> */}
                 </Grid>
               </Grid>
             </CardContent>
