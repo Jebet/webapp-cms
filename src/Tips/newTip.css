@@ -1,0 +1,12 @@
+.checkbox-wrapper {
+  display: flex;
+  position: relative;
+  bottom: 490px;
+  height: 100px;
+  left: 10px;
+}
+.tip-container {
+  padding: 50px;
+  position: relative;
+  top: 40px;
+}
