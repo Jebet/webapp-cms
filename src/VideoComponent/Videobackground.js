@@ -63,17 +63,12 @@ class Videobackground extends React.Component {
       <div className={classes.root} style={{ padding: "15px" }}>
         <Grid container spacing={24}>
           <Grid item xs={12} sm={8}>
-            <Paper className={classes.paper} style={{ height: "350px" }}>
+            <Paper className={classes.paper} style={{ height: "380px" }}>
               <FileUploader style={{ position: "relative", top: "50px" }} />
-              {/* <div
-              class="fas fa-cloud-upload-alt"
-              style={{ width: "60px", height: "60px", color: "red" }}
-            /> */}
             </Paper>
           </Grid>
 
           <Grid item xs={12} sm={4}>
-            {/* <Paper className={classes.paper}> */}
             <TextField
               id="outlined-mind-input"
               label="What's on your mind?"
@@ -82,15 +77,15 @@ class Videobackground extends React.Component {
               name="What's on your mind?"
               margin="normal"
               variant="outlined"
+              style={{ position: "relative", bottom: "15px" }}
             />
-            {/* </Paper> */}
           </Grid>
 
           <Grid item xs={12} sm={8} />
 
           <Grid item xs={12} sm={4}>
             <TextField
-              style={{ position: "relative", bottom: "300px" }}
+              style={{ position: "relative", bottom: "335px" }}
               id="filled-select-category"
               select
               label="Select Category"
@@ -123,7 +118,8 @@ class Videobackground extends React.Component {
                 position: "relative",
                 backgroundcolor: "purple",
                 float: "right",
-                bottom: "270px"
+                bottom: "335px",
+                right: "24px"
               }}
             >
               Post Now
