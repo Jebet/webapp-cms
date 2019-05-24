@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 import PersistentDrawerLeft from "./SideNavigation/SideNav";
 import Video from "./VideoComponent/Videobackground";
-import Tips from "./Topic/newTip";
+import Tips from "./Tips/newTip";
 import MainContent from "./VideoComponent/mainContent";
-// import Videobackground from "./SideNavigation/videoCard";
 
 class App extends React.Component {
   render() {
@@ -13,11 +12,10 @@ class App extends React.Component {
       <Router>
         <div clasName="container-fluid">
           <PersistentDrawerLeft />
-        <MainContent />
-
+         
           <Switch>
             <div className="routes">
-              {/* <Route exact path="/" component={Video} /> */}
+              <Route exact={true} path="/video" component={MainContent} />
               <Route path="/tips" exact component={Tips} />
             </div>
           </Switch>
