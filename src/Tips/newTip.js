@@ -18,6 +18,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardHeader from "@material-ui/core/CardHeader";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 
@@ -35,14 +36,20 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
     textAlign: "left",
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
+    "@media (max-width: 499px)": {
+      height: "auto"
+    }
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing.unit * 3,
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
+      "@media (max-width: 499px)": {
+        height: "50px"
+      }
     })
   },
   contentShift: {
@@ -54,7 +61,7 @@ const styles = theme => ({
   },
   typography: {
     fontSize: "3rem",
-    "@media (min-width:600px)": {
+    "@media (min-width: 499px)": {
       fontSize: "4.5rem"
     },
     [theme.breakpoints.up("md")]: {
@@ -63,13 +70,12 @@ const styles = theme => ({
   },
   card: {
     minWidth: 275,
-    height: 580
+    height: 'auto',
+    "@media (max-width: 499px)": {
+      height: "auto"
+    }
   },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    minWidth: 350
-  },
+
   cssRoot: {
     color: theme.palette.getContrastText(purple[500]),
     backgroundColor: purple[500],
@@ -119,17 +125,14 @@ class Tips extends React.Component {
                   <TextField
                     id="outlined-mind-input"
                     label="Tip Title"
-                    className={classes.textField}
+                    fullWidth
                     type="text"
                     name="What's on your mind?"
                     margin="normal"
                     variant="outlined"
                   />
-                </Grid>
+                  <br />
 
-                <Grid item xs={12} sm={8} style={{ height: "10px" }} />
-
-                <Grid item xs={12} sm={4}>
                   <TextField
                     id="outlined-multiline-flexible"
                     label="Multiline"
@@ -137,33 +140,11 @@ class Tips extends React.Component {
                     rowsMax="4"
                     // value={values.multiline}
                     // onChange={handleChange("multiline")}
-                    className={classes.textField}
+                    fullWidth
                     margin="normal"
                     helperText="hello"
                     variant="outlined"
-                    style={{
-                      position: "relative",
-                      bottom: "340px",
-                      height: "230px"
-                    }}
                   />
-
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classNames(classes.margin, classes.cssRoot)}
-                    style={{
-                      height: "40px",
-                      minWidth: "70px",
-                      position: "relative",
-                      backgroundcolor: "purple",
-                      float: "right",
-                      bottom: "313px",
-                      right: "25px"
-                    }}
-                  >
-                    CREATE
-                  </Button>
 
                   <div className="checkbox-wrapper" col-sm-4>
                     <FormGroup row>
@@ -234,6 +215,15 @@ class Tips extends React.Component {
                       />
                     </FormGroup>
                   </div>
+
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    id="btn-create"
+                    className={classNames(classes.margin, classes.cssRoot)}
+                  >
+                    CREATE
+                  </Button>
                 </Grid>
               </Grid>
             </CardContent>
