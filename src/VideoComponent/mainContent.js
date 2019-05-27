@@ -25,7 +25,7 @@ const styles = theme => ({
     paddingBottom: "50px",
     "@media (max-width: 499px)": {
       height: "auto",
-      padding: "10px"
+      // padding: "10px"
     }
   },
   content: {
@@ -48,6 +48,7 @@ const styles = theme => ({
   },
   typography: {
     fontSize: "3rem",
+  
     "@media (min-width: 499px)": {
       fontSize: "4.5rem"
     },
@@ -69,8 +70,9 @@ function mainContent(props) {
   return (
     <div className="tip-container">
       <Card className={classes.card}>
-        <CardContent>
-          <Typography className={"heading"} variant={"h5"} gutterBottom>
+        <CardContent style={{position: 'relative', bottom: '20px'}}>
+          <Typography className={"heading"} variant={"h5"} gutterBottom style={{  position: 'relative',
+    top: '30px',}}>
             ADD NEW VIDEO:
           </Typography>
           <Videobackground />
