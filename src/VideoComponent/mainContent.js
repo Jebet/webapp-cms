@@ -5,30 +5,70 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import "../VideoComponent/mainContent.css";
+import green from "@material-ui/core/colors/green";
+
+import "./mainContent.css";
 import Videobackground from "../VideoComponent/Videobackground";
 
-const styles = {
-  card: {
-    minWidth: 255,
-    height: 505,
-    padding: "5px"
+const styles = theme => ({
+  root: {
+    flexGrow: 1,
+    color: green[600],
+    "&$checked": {
+      color: green[500]
+    },
+    checked: {}
   },
-
+  card: {
+    minWidth: 275,
+    height: "auto",
+    paddingBottom: "50px",
+    "@media (max-width: 499px)": {
+      height: "auto",
+      padding: "10px"
+    }
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 3,
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+      "@media (max-width: 499px)": {
+        height: "50px"
+      }
+    })
+  },
+  contentShift: {
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen
+    }),
+    marginLeft: 0
+  },
+  typography: {
+    fontSize: "3rem",
+    "@media (min-width: 499px)": {
+      fontSize: "4.5rem"
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "6rem"
+    }
+  },
   title: {
     fontSize: 14
   },
   pos: {
     marginBottom: 12
   }
-};
+});
 
 function mainContent(props) {
   const { classes } = props;
 
   return (
-    <div className="main-container">
-      <Card className={classes.card} style={{}}>
+    <div className="tip-container">
+      <Card className={classes.card}>
         <CardContent>
           <Typography className={"heading"} variant={"h5"} gutterBottom>
             ADD NEW VIDEO:
