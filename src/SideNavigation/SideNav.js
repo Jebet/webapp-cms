@@ -88,7 +88,10 @@ const styles = theme => ({
   },
   card: {
     minWidth: 275,
-    height: 410
+    height: 410,
+    "@media (min-width: 499px)": {
+      height: "auto"
+    }
   },
 
   bullet: {
