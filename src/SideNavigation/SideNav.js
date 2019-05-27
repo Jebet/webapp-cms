@@ -18,15 +18,15 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import BookIcon from "@material-ui/icons/Book";
 import VideocamIcon from "@material-ui/icons/Videocam";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Videobackground from "../VideoComponent/Videobackground";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Video from "../VideoComponent/Videobackground";
+// import Card from "@material-ui/core/Card";
+// import CardActions from "@material-ui/core/CardActions";
+// import CardContent from "@material-ui/core/CardContent";
+// import Button from "@material-ui/core/Button";
+// import Videobackground from "../VideoComponent/Videobackground";
+import { Link } from "react-router-dom";
+// import Video from "../VideoComponent/Videobackground";
 import "./SideNav.css";
-import Tips from "../Tips/newTip";
+// import Tips from "../Tips/newTip";
 
 const drawerWidth = 240;
 
