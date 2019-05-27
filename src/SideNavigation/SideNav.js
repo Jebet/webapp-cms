@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Articles from "../Articles/Articles"
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -170,7 +171,7 @@ class PersistentDrawerLeft extends React.Component {
           </div>
           <Divider />
           <List style={{ color: "white" }}>
-            {["Videos", "Articles", "Tips", "Images"].map((text, index) => (
+            {["Videos", <Link to="/Articles">Articles</Link>, "Tips", "Images"].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon style={{ color: "white", fontWeight: "500" }}>
                   {index % 4 === 0 ? <VideocamIcon /> : <BookIcon />}

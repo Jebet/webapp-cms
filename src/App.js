@@ -4,6 +4,7 @@ import "./App.css";
 import PersistentDrawerLeft from "./SideNavigation/SideNav";
 import Video from "./VideoComponent/Videobackground";
 import Tips from "./Topic/newTip";
+import Articles from "./Articles/Articles"
 import MainContent from "./VideoComponent/mainContent";
 // import Videobackground from "./SideNavigation/videoCard";
 
@@ -11,13 +12,13 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div clasName="container-fluid">
+        <div className="container">
           <PersistentDrawerLeft />
         <MainContent />
 
           <Switch>
             <div className="routes">
-              {/* <Route exact path="/" component={Video} /> */}
+               <Route exact path="/articles" component={Articles} /> 
               <Route path="/tips" exact component={Tips} />
             </div>
           </Switch>
