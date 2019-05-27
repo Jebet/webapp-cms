@@ -121,7 +121,7 @@ class Videobackground extends React.Component {
                 height: "40px",
                 minWidth: "70px",
                 position: "relative",
-                backgroundcolor: "purple",
+                backgroundcolor: "linear-gradient(-90deg, rgb(255, 0, 34), purple)",
                 float: "right",
                 bottom: "270px"
               }}
