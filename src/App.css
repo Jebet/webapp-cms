@@ -4,19 +4,11 @@
   box-sizing: border-box;
 }
 
-<<<<<<< HEAD
 body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
   background: #f0f0f0;
-=======
-.routes{
-  padding: 2%;
-  margin: 0 auto;
-  max-width: 1300px;
-  position: relative;
->>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
 }
 
 .container {

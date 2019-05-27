@@ -9,7 +9,7 @@ import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Button } from "semantic-ui-react";
-
+import FileUpload from "../FileUploader/fileUploader";
 
 import "./Articles.css";
 import "./styles.scss";
@@ -39,26 +39,7 @@ class Articles extends Component {
     return (
       <div className="new-article__container">
         <div className="article__attachment ">
-          <div className="new-article__attachment ">
-            <FilePond
-              onClick={true}
-              className="file__article"
-              dropOnElement="true"
-              dropOnPage="true"
-              dropValidation="true"
-              setOptions="option"
-              instantUpload="true"
-              allowImageResize={true}
-              imageResizeUpscale={true}
-              allowImageTransform="true"
-              allowMultiple={false}
-              allowReplace={true}
-              server=""
-              name={"file"}
-              labelIdle='DRAG & DROP FILES HERE<br><span class="filepond--label-action"> Browse </span>'
-              ref={ref => (this.pond = ref)}
-            />
-          </div>
+          <FileUpload />
           <form className="form-container">
             <TextField
               id="outlined-full-width"

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Articles from "../Articles/Articles"
+import Articles from "../Articles/Articles";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -50,8 +50,7 @@ const styles = theme => ({
     })
   },
   menuButton: {
-    marginLeft: 12,
-    marginRight: 20
+    margin: "3px"
   },
   hide: {
     display: "none"
@@ -135,7 +134,7 @@ class PersistentDrawerLeft extends React.Component {
           })}
         >
           <Toolbar
-            disableGutters={!open}
+            // disableGutters={!open}
             style={{
               background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)"
             }}
@@ -144,6 +143,7 @@ class PersistentDrawerLeft extends React.Component {
               color="inherit"
               aria-label="Open drawer"
               onClick={this.handleDrawerOpen}
+              edge="start"
               className={classNames(classes.menuButton, open && classes.hide)}
             >
               <MenuIcon />
@@ -174,16 +174,12 @@ class PersistentDrawerLeft extends React.Component {
           </div>
           <Divider />
           <List style={{ color: "white" }}>
-<<<<<<< HEAD
-            {["Videos", <Link to="/Articles">Articles</Link>, "Tips", "Images"].map((text, index) => (
-=======
             {[
-              <Link to="/video">Videos</Link>,
-              "Articles",
-              <Link to="/tips">Tips</Link>,
+              "Videos",
+              <Link to="/Articles">Articles</Link>,
+              "Tips",
               "Images"
             ].map((text, index) => (
->>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
               <ListItem button key={text}>
                 <ListItemIcon style={{ color: "white", fontWeight: "500" }}>
                   {index % 2 === 0 ? <VideocamIcon /> : <BookIcon />}
@@ -204,19 +200,15 @@ class PersistentDrawerLeft extends React.Component {
             ))}
           </List> */}
         </Drawer>
-        {/* <main
+        <main
           className={classNames(classes.content, {
             [classes.contentShift]: open
           })}
         >
           <div className={classes.drawerHeader} />
 
-          <Card className={classes.card}>
-            <CardContent>
-              <Videobackground />
-            </CardContent>
-          </Card>
-        </main> */}
+         
+        </main>
       </div>
     );
   }

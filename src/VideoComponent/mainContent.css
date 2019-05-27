@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .new-article__container {
   height: 100%;
   padding: 00px;
@@ -139,10 +138,4 @@
   display: inline-block;
   width: 100%;
   max-width: 90px;
-=======
-.tip-container {
-  padding: 50px;
-  position: relative;
-  top: 40px;
->>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
 }

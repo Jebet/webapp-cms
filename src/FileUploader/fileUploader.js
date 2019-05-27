@@ -33,27 +33,26 @@ class FileUploader extends React.Component {
 
   render() {
     return (
-      <div className="filepond-container">
-        {/* Pass FilePond properties as attributes */}
-
-        <FilePond
-          className="file__article"
-          dropOnElement="true"
-          dropOnPage="true"
-          dropValidation="true"
-          setOptions="option"
-          instantUpload="true"
-          allowImageResize={true}
-          imageResizeUpscale={true}
-          allowImageTransform="true"
-          allowMultiple={true}
-          allowReplace={true}
-          server=""
-          name={"file"}
-          labelIdle='DRAG & DROP FILES HERE <br><span class="filepond--label-action"> Browse </span>'
-          ref={ref => (this.pond = ref)}
-        />
-      </div>
+      <div className="new-article__attachment ">
+      <FilePond
+        onClick={true}
+        className="file__article"
+        dropOnElement="true"
+        dropOnPage="true"
+        dropValidation="true"
+        setOptions="option"
+        instantUpload="true"
+        allowImageResize={true}
+        imageResizeUpscale={true}
+        allowImageTransform="true"
+        allowMultiple={false}
+        allowReplace={true}
+        server=""
+        name={"file"}
+        labelIdle='DRAG & DROP FILES HERE<br><span class="filepond--label-action"> Browse </span>'
+        ref={ref => (this.pond = ref)}
+      />
+    </div>
     );
   }
 }

@@ -6,135 +6,77 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
-<<<<<<< HEAD
-import classNames from "classnames";
-import { EditorState } from "draft-js";
-import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Button } from "semantic-ui-react";
+import FileUpload from "../FileUploader/fileUploader";
 
-import "./mainContent.css";
-// import "./styles.scss";
+import "./Videobackground.css";
 
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
-=======
-import "./Videobackground.css";
-
-const styles = theme => ({
-  root: {
-    flexGrow: 1
-  },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: "left",
-    color: theme.palette.text.secondary,
-    "@media (max-width: 499px)": {
-      height: "auto"
-    }
-  },
-
-  cssRoot: {
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
-    "&:hover": {
-      backgroundColor: purple[700]
-    }
-  }
-});
->>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
-
-// style={{ height: "380px" }}
-const category = [
-  {
-    value: "PAP",
-    label: "P.A.P"
-  },
-  {
-    value: "Konnect",
-    label: "Konnect"
-  },
-  {
-    value: "Web App",
-    label: "Webapp"
-  }
-];
 
 class Articles extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editorState: EditorState.createEmpty()
+      name: "",
+      category: ""
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onChange = editorState => {
-    const MAX_LENGTH = 10;
-    const length = editorState.getCurrentContent().getPlainText("").length;
+  handleChange(e) {
+    this.setState({ category: e.target.value });
+  }
 
-    if (length <= MAX_LENGTH) {
-      this.setState({ editorState });
-    }
-  };
+  handleSubmit(e) {
+    alert(JSON.stringify(this.state, null, "  "));
+  }
 
   render() {
-    const { editorState } = this.state;
-    const { classes } = this.props;
+    const category = [
+      {
+        value: "PAP",
+        label: "P.A.P"
+      },
+      {
+        value: "Konnect",
+        label: "Konnect"
+      },
+      {
+        value: "Web App",
+        label: "Webapp"
+      }
+    ];
+
     return (
       <div className="new-article__container">
         <div className="article__attachment ">
-          <div className="new-article__attachment ">
-            <FilePond
-              onClick={true}
-              className="file__article"
-              dropOnElement="true"
-              dropOnPage="true"
-              dropValidation="true"
-              setOptions="option"
-              instantUpload="true"
-              allowImageResize={true}
-              imageResizeUpscale={true}
-              allowImageTransform="true"
-              allowMultiple={false}
-              allowReplace={true}
-              server=""
-              name={"file"}
-              labelIdle='DRAG & DROP FILES HERE<br><span class="filepond--label-action"> Browse </span>'
-              ref={ref => (this.pond = ref)}
-            />
-          </div>
-          <form className="form-container">
+          <FileUpload />
+          <form className="form-container" onSubmit={this.handleSubmit}>
             <TextField
               id="outlined-full-width"
               label="Article Title"
               fullWidth
               margin="normal"
+              value={this.state.name}
+              onChange={e => this.setState({ name: e.target.value })}
               variant="outlined"
               className="textfield"
             />
-            <div className="form-editor-container">
+            <div className="">
               <TextField
-                id="outlined-full-width"
-                label="Article Title"
-                fullWidth
-                margin="normal"
-                variant="outlined"
+                id="filled-select-category"
                 select
-                label="Select Category"
+                label="Select"
                 value={this.state.category}
-                onChange={this.handleChange}
-                SelectProps={{
-                  MenuProps: {
-                    className: classes.menu
-                  }
-                }}
-                helperText="Please select your category"
+                onChange={e => this.setState({ category: e.target.value })}
+                fullWidth
                 margin="normal"
                 variant="outlined"
-<<<<<<< HEAD
-=======
-                fullWidth
->>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
+                helperText="Please select your category"
               >
                 {category.map(option => (
                   <MenuItem key={option.value} value={option.value}>
@@ -142,26 +84,13 @@ class Articles extends Component {
                   </MenuItem>
                 ))}
               </TextField>
-<<<<<<< HEAD
             </div>
-            {/* <p> Description has to be atleast 50 characters</p> */}
             <div className="post_button_container">
-              <Button className="post_button">Post Now</Button>
-            </div>
-          </form>
-=======
-
-              <Button
-                variant="contained"
-                id="btn-post"
-                color="primary"
-                className={classNames(classes.margin, classes.cssRoot)}
-              >
+              <Button className="post_button" type="submit">
                 Post Now
               </Button>
-            </Grid>
-          </Grid>
->>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
+            </div>
+          </form>
         </div>
       </div>
     );

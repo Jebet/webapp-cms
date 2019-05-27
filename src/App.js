@@ -1,11 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import PersistentDrawerLeft from "./SideNavigation/SideNav";
 import Video from "./VideoComponent/Videobackground";
-import Tips from "./Topic/newTip";
-import Articles from "./Articles/Articles"
-import MainContent from "./VideoComponent/mainContent";
+import Tips from "./Tips/newTip";
+import Articles from "./Articles/Articles";
+import Videobackground from "./VideoComponent/Videobackground";
 
 class App extends React.Component {
   render() {
@@ -13,13 +13,13 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <PersistentDrawerLeft />
-         
-          <Switch>
+          <Videobackground />
+          {/* <Switch>
             <div className="routes">
-               <Route exact path="/articles" component={Articles} /> 
+              <Route exact path="/articles" component={Articles} />
               <Route path="/tips" exact component={Tips} />
             </div>
-          </Switch>
+          </Switch> */}
         </div>
       </Router>
     );
