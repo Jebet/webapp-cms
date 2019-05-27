@@ -1,0 +1,31 @@
+.checkbox-wrapper {
+  display: flex;
+  position: relative;
+  /* bottom: 200px; */
+  /* height: 100px; */
+  left: 10px;
+}
+.tip-container {
+  padding: 50px;
+  position: relative;
+  top: 40px;
+}
+#btn-create {
+  height: 40px;
+  width: 100px;
+  position: relative;
+  background-color: purple;
+  float: right;
+  right: 25px;
+}
+@media (min-width: 499px) {
+  .checkbox-wrapper {
+    min-width: 100px;
+    flex-direction: row;
+  }
+  #btn-create {
+  }
+  .tip-container {
+    width: auto;
+  }
+}

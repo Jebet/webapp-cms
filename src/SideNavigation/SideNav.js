@@ -19,15 +19,15 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import BookIcon from "@material-ui/icons/Book";
 import VideocamIcon from "@material-ui/icons/Videocam";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Videobackground from "../VideoComponent/Videobackground";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Video from "../VideoComponent/Videobackground";
+// import Card from "@material-ui/core/Card";
+// import CardActions from "@material-ui/core/CardActions";
+// import CardContent from "@material-ui/core/CardContent";
+// import Button from "@material-ui/core/Button";
+// import Videobackground from "../VideoComponent/Videobackground";
+import { Link } from "react-router-dom";
+// import Video from "../VideoComponent/Videobackground";
 import "./SideNav.css";
-import Tips from "../Topic/newTip";
+// import Tips from "../Tips/newTip";
 
 const drawerWidth = 240;
 
@@ -89,7 +89,10 @@ const styles = theme => ({
   },
   card: {
     minWidth: 275,
-    height: 410
+    height: 410,
+    "@media (min-width: 499px)": {
+      height: "auto"
+    }
   },
 
   bullet: {
@@ -146,7 +149,7 @@ class PersistentDrawerLeft extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              ADD NEW VIDEOS
+              SHUJAAZ C.M.S
             </Typography>
           </Toolbar>
         </AppBar>
@@ -171,10 +174,19 @@ class PersistentDrawerLeft extends React.Component {
           </div>
           <Divider />
           <List style={{ color: "white" }}>
+<<<<<<< HEAD
             {["Videos", <Link to="/Articles">Articles</Link>, "Tips", "Images"].map((text, index) => (
+=======
+            {[
+              <Link to="/video">Videos</Link>,
+              "Articles",
+              <Link to="/tips">Tips</Link>,
+              "Images"
+            ].map((text, index) => (
+>>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
               <ListItem button key={text}>
                 <ListItemIcon style={{ color: "white", fontWeight: "500" }}>
-                  {index % 4 === 0 ? <VideocamIcon /> : <BookIcon />}
+                  {index % 2 === 0 ? <VideocamIcon /> : <BookIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>

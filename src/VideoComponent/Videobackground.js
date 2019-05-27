@@ -6,6 +6,7 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+<<<<<<< HEAD
 import classNames from "classnames";
 import { EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
@@ -17,7 +18,33 @@ import "./mainContent.css";
 
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
+=======
+import "./Videobackground.css";
 
+const styles = theme => ({
+  root: {
+    flexGrow: 1
+  },
+  paper: {
+    padding: theme.spacing.unit * 2,
+    textAlign: "left",
+    color: theme.palette.text.secondary,
+    "@media (max-width: 499px)": {
+      height: "auto"
+    }
+  },
+
+  cssRoot: {
+    color: theme.palette.getContrastText(purple[500]),
+    backgroundColor: purple[500],
+    "&:hover": {
+      backgroundColor: purple[700]
+    }
+  }
+});
+>>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
+
+// style={{ height: "380px" }}
 const category = [
   {
     value: "PAP",
@@ -54,6 +81,7 @@ class Articles extends Component {
     const { editorState } = this.state;
     const { classes } = this.props;
     return (
+<<<<<<< HEAD
       <div className="new-article__container">
         <div className="article__attachment ">
           <div className="new-article__attachment ">
@@ -94,6 +122,34 @@ class Articles extends Component {
                 variant="outlined"
                 select
                 label="Select Category"
+=======
+      <div className="video-container">
+        <div className={classes.root}>
+          <Grid container spacing={24}>
+            <Grid item xs={12} sm={8}>
+              <Paper className={classes.paper} style={{ height: "400px" }}>
+                <FileUploader />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} sm={4}>
+              <TextField
+                id="outlined-mind-input"
+                label="What's on your mind?"
+                className={classes.textField}
+                type="text"
+                name="What's on your mind?"
+                margin="normal"
+                variant="outlined"
+                fullWidth
+              />
+
+              <TextField
+                id="filled-select-category"
+                select
+                label="Select Category"
+                className={classes.textField}
+>>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
                 value={this.state.category}
                 onChange={this.handleChange}
                 SelectProps={{
@@ -104,6 +160,10 @@ class Articles extends Component {
                 helperText="Please select your category"
                 margin="normal"
                 variant="outlined"
+<<<<<<< HEAD
+=======
+                fullWidth
+>>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
               >
                 {category.map(option => (
                   <MenuItem key={option.value} value={option.value}>
@@ -111,12 +171,26 @@ class Articles extends Component {
                   </MenuItem>
                 ))}
               </TextField>
+<<<<<<< HEAD
             </div>
             {/* <p> Description has to be atleast 50 characters</p> */}
             <div className="post_button_container">
               <Button className="post_button">Post Now</Button>
             </div>
           </form>
+=======
+
+              <Button
+                variant="contained"
+                id="btn-post"
+                color="primary"
+                className={classNames(classes.margin, classes.cssRoot)}
+              >
+                Post Now
+              </Button>
+            </Grid>
+          </Grid>
+>>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
         </div>
       </div>
     );

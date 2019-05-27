@@ -4,7 +4,7 @@ import "filepond/dist/filepond.min.css";
 import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orientation";
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
-// import "./FileUploader.css";
+import "./fileUploader.css";
 
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
@@ -35,20 +35,23 @@ class FileUploader extends React.Component {
     return (
       <div className="filepond-container">
         {/* Pass FilePond properties as attributes */}
-     
+
         <FilePond
-          ref={ref => (this.pond = ref)}
-          files={this.state.files}
+          className="file__article"
+          dropOnElement="true"
+          dropOnPage="true"
+          dropValidation="true"
+          setOptions="option"
+          instantUpload="true"
+          allowImageResize={true}
+          imageResizeUpscale={true}
+          allowImageTransform="true"
           allowMultiple={true}
-          maxFiles={10}
-          server="/api"
-          oninit={() => this.handleInit()}
-          onupdatefiles={fileItems => {
-            // Set currently active file objects to this.state
-            this.setState({
-              files: fileItems.map(fileItem => fileItem.file)
-            });
-          }}
+          allowReplace={true}
+          server=""
+          name={"file"}
+          labelIdle='DRAG & DROP FILES HERE <br><span class="filepond--label-action"> Browse </span>'
+          ref={ref => (this.pond = ref)}
         />
       </div>
     );
