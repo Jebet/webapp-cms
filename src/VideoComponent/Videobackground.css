@@ -1,0 +1,19 @@
+.video-container {
+  padding: 15px;
+  position: relative;
+  top: 40px;
+}
+#btn-post {
+  height: 40px;
+  width: 120px;
+  position: relative;
+  background-color: purple;
+  float: right;
+  right: 2px;
+}
+
+@media (min-width: 499px) {
+  .video-container {
+    width: auto;
+  }
+}
