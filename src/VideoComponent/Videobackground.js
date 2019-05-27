@@ -57,8 +57,8 @@ class Articles extends Component {
           <FileUpload />
           <form className="form-container" onSubmit={this.handleSubmit}>
             <TextField
-              id="outlined-full-width"
-              label="Article Title"
+              id="filled-select-category"
+              label="What's on your mind?"
               fullWidth
               margin="normal"
               value={this.state.name}
