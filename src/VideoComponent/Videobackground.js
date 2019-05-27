@@ -9,6 +9,7 @@ import classNames from "classnames";
 import FileUploader from "../FileUploader/fileUploader";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
+import "./Videobackground.css";
 
 const styles = theme => ({
   root: {
@@ -17,13 +18,12 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
     textAlign: "left",
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
+    "@media (max-width: 499px)": {
+      height: "auto"
+    }
   },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    minWidth: 350
-  },
+
   cssRoot: {
     color: theme.palette.getContrastText(purple[500]),
     backgroundColor: purple[500],
@@ -33,6 +33,7 @@ const styles = theme => ({
   }
 });
 
+// style={{ height: "380px" }}
 const category = [
   {
     value: "PAP",
@@ -60,72 +61,62 @@ class Videobackground extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root} style={{ padding: "15px" }}>
-        <Grid container spacing={24}>
-          <Grid item xs={12} sm={8}>
-            <Paper className={classes.paper} style={{ height: "380px" }}>
-              <FileUploader style={{ position: "relative", top: "50px" }} />
-            </Paper>
+      <div className="video-container">
+        <div className={classes.root}>
+          <Grid container spacing={24}>
+            <Grid item xs={12} sm={8}>
+              <Paper className={classes.paper} style={{ height: "400px" }}>
+                <FileUploader />
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} sm={4}>
+              <TextField
+                id="outlined-mind-input"
+                label="What's on your mind?"
+                className={classes.textField}
+                type="text"
+                name="What's on your mind?"
+                margin="normal"
+                variant="outlined"
+                fullWidth
+              />
+
+              <TextField
+                id="filled-select-category"
+                select
+                label="Select Category"
+                className={classes.textField}
+                value={this.state.category}
+                onChange={this.handleChange}
+                SelectProps={{
+                  MenuProps: {
+                    className: classes.menu
+                  }
+                }}
+                helperText="Please select your category"
+                margin="normal"
+                variant="outlined"
+                fullWidth
+              >
+                {category.map(option => (
+                  <MenuItem key={option.value} value={option.value}>
+                    {option.label}
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <Button
+                variant="contained"
+                id="btn-post"
+                color="primary"
+                className={classNames(classes.margin, classes.cssRoot)}
+              >
+                Post Now
+              </Button>
+            </Grid>
           </Grid>
-
-          <Grid item xs={12} sm={4}>
-            <TextField
-              id="outlined-mind-input"
-              label="What's on your mind?"
-              className={classes.textField}
-              type="text"
-              name="What's on your mind?"
-              margin="normal"
-              variant="outlined"
-              style={{ position: "relative", bottom: "15px" }}
-            />
-          </Grid>
-
-          <Grid item xs={12} sm={8} />
-
-          <Grid item xs={12} sm={4}>
-            <TextField
-              style={{ position: "relative", bottom: "335px" }}
-              id="filled-select-category"
-              select
-              label="Select Category"
-              className={classes.textField}
-              value={this.state.category}
-              onChange={this.handleChange}
-              SelectProps={{
-                MenuProps: {
-                  className: classes.menu
-                }
-              }}
-              helperText="Please select your category"
-              margin="normal"
-              variant="outlined"
-            >
-              {category.map(option => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-
-            <Button
-              variant="contained"
-              color="primary"
-              className={classNames(classes.margin, classes.cssRoot)}
-              style={{
-                height: "40px",
-                minWidth: "70px",
-                position: "relative",
-                backgroundcolor: "purple",
-                float: "right",
-                bottom: "335px",
-                right: "24px"
-              }}
-            >
-              Post Now
-            </Button>
-          </Grid>
-        </Grid>
+        </div>
       </div>
     );
   }
