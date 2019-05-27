@@ -81,7 +81,6 @@ class Articles extends Component {
     const { editorState } = this.state;
     const { classes } = this.props;
     return (
-<<<<<<< HEAD
       <div className="new-article__container">
         <div className="article__attachment ">
           <div className="new-article__attachment ">
@@ -122,34 +121,6 @@ class Articles extends Component {
                 variant="outlined"
                 select
                 label="Select Category"
-=======
-      <div className="video-container">
-        <div className={classes.root}>
-          <Grid container spacing={24}>
-            <Grid item xs={12} sm={8}>
-              <Paper className={classes.paper} style={{ height: "400px" }}>
-                <FileUploader />
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} sm={4}>
-              <TextField
-                id="outlined-mind-input"
-                label="What's on your mind?"
-                className={classes.textField}
-                type="text"
-                name="What's on your mind?"
-                margin="normal"
-                variant="outlined"
-                fullWidth
-              />
-
-              <TextField
-                id="filled-select-category"
-                select
-                label="Select Category"
-                className={classes.textField}
->>>>>>> 0ced6aba63561f35d5979dc42d39449b79cebcee
                 value={this.state.category}
                 onChange={this.handleChange}
                 SelectProps={{
