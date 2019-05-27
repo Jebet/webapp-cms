@@ -1,8 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./App.css";
 import PersistentDrawerLeft from "./SideNavigation/SideNav";
-import Video from "./VideoComponent/Videobackground";
+// import Video from "./VideoComponent/Videobackground";
 import Tips from "./Tips/newTip";
 import MainContent from "./VideoComponent/mainContent";
 
