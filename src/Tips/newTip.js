@@ -70,7 +70,7 @@ const styles = theme => ({
   },
   card: {
     minWidth: 275,
-    height: 'auto',
+    height: "auto",
     "@media (max-width: 499px)": {
       height: "auto"
     }

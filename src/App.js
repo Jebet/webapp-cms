@@ -4,6 +4,7 @@ import "./App.css";
 import PersistentDrawerLeft from "./SideNavigation/SideNav";
 import Video from "./VideoComponent/Videobackground";
 import Tips from "./Tips/newTip";
+import Topics from "./Topic/Topic"
 import Articles from "./Articles/Articles";
 import Videobackground from "./VideoComponent/Videobackground";
 
@@ -13,7 +14,7 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <PersistentDrawerLeft />
-          <Videobackground />
+          <Topics/>
           {/* <Switch>
             <div className="routes">
               <Route exact path="/articles" component={Articles} />
