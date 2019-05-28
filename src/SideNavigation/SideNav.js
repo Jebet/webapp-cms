@@ -175,9 +175,9 @@ class PersistentDrawerLeft extends React.Component {
           <Divider />
           <List style={{ color: "white" }}>
             {[
-              "Videos",
-              <Link to="/Articles">Articles</Link>,
-              "Tips",
+              <Link to="/video">Video</Link>,
+              <Link to="/articles">Articles</Link>,
+              <Link to="/tips">Tips</Link>,
               "Images"
             ].map((text, index) => (
               <ListItem button key={text}>
@@ -206,8 +206,6 @@ class PersistentDrawerLeft extends React.Component {
           })}
         >
           <div className={classes.drawerHeader} />
-
-         
         </main>
       </div>
     );
