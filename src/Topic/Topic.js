@@ -27,59 +27,53 @@ class Topics extends Component {
     super(props);
     this.state = {
       name: "",
-      category: "",
-      uploads: ""
+      uploads: "",
+      images: "",
+      video: "",
+      audio: "",
+      articles: "",
+      title: "",
+      description: "",
+      tips: "",
+      discussions: "",
+      value: ""
     };
-
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
+  
 
-  //   handleChange(e) {
-  //     this.setState({ category: e.target.value });
-  //   }
+  handleSubmit = event => {
+    event.preventDefault();
+    const {
+      audio,
+      video,
+      title,
+      description,
+      discussions,
+      tips,
+      images,
+      articles
+    } = this.state;
+    alert(`Your state values: \n
+          title: ${title} \n
+          description: ${description} \n
+            audio: ${audio} \n
+            video: ${video} \n
+            tips: ${tips} \n
+            discussions: ${discussions} \n
+            articles: ${articles} \n
+            images: ${images}`);
+  };
+  onChange = editorState => {
+    const MAX_LENGTH = 10;
+    const length = editorState.getCurrentContent().getPlainText("").length;
 
-  //   handleSubmit(e) {
-  //     e.preventDefault();
-  //     alert(JSON.stringify(this.state, null, "  "));
-  //   }
-
-  //   onDrop = (acceptedFiles, rejectedFiles) => {
-  //     const file = acceptedFiles.find(f => f);
-  //     const data = new Image();
-
-  //     data.onload = () => {
-  //       let reader = new FileReader();
-  //       reader.readAsDataURL(file);
-  //       reader.onload = () => {
-  //         console.log({
-  //           src: file.preview,
-  //           width: data.width,
-  //           height: data.height,
-  //           data: reader.result
-  //         });
-  //       };
-  //     };
-
-  //     data.src = file.preview;
-  //   };
+    if (length <= MAX_LENGTH) {
+      this.setState({ editorState });
+    }
+  };
 
   render() {
     const { classes } = this.props;
-    const category = [
-      {
-        checkedA: true
-      },
-      {
-        checkedB: true
-      },
-      {
-        checkedF: true
-      },
-      {
-        checkedG: true
-      }
-    ];
 
     return (
       <div>
@@ -90,13 +84,15 @@ class Topics extends Component {
               onDrop={this.state.uploads}
               onChange={e => this.setState({ uploads: e.target.onDrop })}
             />
-            <form className="form-container">
+            <form className="form-container" onSubmit={this.handleSubmit}>
               <TextField
                 id="outlined-mind-input"
                 label="Tip Title"
                 fullWidth
                 type="text"
                 name="What's on your mind?"
+                value={this.state.title}
+                onChange={e => this.setState({ title: e.target.value })}
                 margin="normal"
                 variant="outlined"
               />
@@ -106,12 +102,12 @@ class Topics extends Component {
                   label="Description"
                   multiline
                   rowsMax="4"
-                  // value={values.multiline}
-                  // onChange={handleChange("multiline")}
                   fullWidth
                   margin="normal"
                   helperText="hello"
                   variant="outlined"
+                  value={this.state.description}
+                  onChange={e => this.setState({ description: e.target.value })}
                 />
               </div>
               <div className="post_button_container">
@@ -120,9 +116,12 @@ class Topics extends Component {
                     <FormControlLabel
                       control={
                         <Checkbox
-                        //   checked={this.state.checkedA}
-                        //   onChange={e => this.setState({ category: e.target.value })}
-                        //   value={this.state.category}
+                          icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
+                          // checkedIcon={<CheckBoxIcon fontSize="small" />}
+                          value={this.state.video}
+                          // checked={this.state.video}
+                          onChange={e => this.setState({ video: e.target.value })}
+                         
                         />
                       }
                       label="Videos"
@@ -130,50 +129,71 @@ class Topics extends Component {
                     <FormControlLabel
                       control={
                         <Checkbox
-                        //   checked={this.state.checkedA}
-                        //   onChange={e => this.setState({ category: e.target.value })}
-                        //   value={this.state.category}
+                          icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
+                          // checkedIcon={<CheckBoxIcon fontSize="small" />}
+                          value="images"
+                          // checked={this.state.images}
+                          onChange={this.handleImageChange}
                         />
                       }
+                      // control={<Checkbox checked={this.state.video} />}
                       label="Images"
                     />
                     <FormControlLabel
+                      // control={<Checkbox checked={this.state.audio} />}
+                      // label="Audio"
                       control={
                         <Checkbox
-                        //   checked={this.state.checkedA}
-                        //   onChange={e => this.setState({ category: e.target.value })}
-                        //   value={this.state.category}
+                          icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
+                          // checkedIcon={<CheckBoxIcon fontSize="small" />}
+                          value="audio"
+                          // checked={this.state.audio}
+                          onChange={this.handleAudioChange}
                         />
                       }
+                      // control={<Checkbox checked={this.state.video} />}
                       label="Audio"
                     />
                     <br />
                     <FormControlLabel
+                      // control={<Checkbox checked={this.state.articles} />}
+                      // label="Articles"
                       control={
                         <Checkbox
-                        //   checked={this.state.checkedA}
-                        //   onChange={e => this.setState({ category: e.target.value })}
-                        //   value={this.state.category}
+                          icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
+                          // checkedIcon={<CheckBoxIcon fontSize="small" />}
+                          value="articles"
+                          // checked={this.state.articles}
+                          onChange={this.handleArticleChange}
                         />
                       }
+                      // control={<Checkbox checked={this.state.video} />}
                       label="Articles"
                     />
                     <FormControlLabel
+                      // control={<Checkbox checked={this.state.tips} />}
+                      // label="Tips"
                       control={
                         <Checkbox
-                        //   checked={this.state.checkedA}
-                        //   onChange={e => this.setState({ category: e.target.value })}
-                        //   value={this.state.category}
+                          icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
+                          // checkedIcon={<CheckBoxIcon fontSize="small" />}
+                          value="tips"
+                          // checked={this.state.tips}
+                          onChange={this.handleTipsChange}
                         />
                       }
                       label="Tips"
                     />
                     <FormControlLabel
+                      // control={<Checkbox checked={this.state.tips} />}
+                      // label="Discussions"
                       control={
                         <Checkbox
-                        //   checked={this.state.checkedA}
-                        //   onChange={e => this.setState({ category: e.target.value })}
-                        //   value={this.state.category}
+                          icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
+                          // checkedIcon={<CheckBoxIcon fontSize="small" />}
+                          value="discussions"
+                          // checked={this.state.discussions}
+                          onChange={this.handleDiscussionsChange}
                         />
                       }
                       label="Discussions"
