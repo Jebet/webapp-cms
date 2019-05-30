@@ -5,7 +5,7 @@ import FilePondPluginImageExifOrientation from "filepond-plugin-image-exif-orien
 import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import TextField from "@material-ui/core/TextField";
-import { EditorState } from "draft-js";
+import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { Button } from "semantic-ui-react";
@@ -24,14 +24,21 @@ class Articles extends Component {
       editorState: EditorState.createEmpty(),
       title: " ",
       description: " ",
-      uploads: []
+      value: "",
+      uploads: [],
+      editorState: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
-    alert(JSON.stringify(this.state, null, "  "));
-  }
+  handleSubmit = event => {
+    event.preventDefault();
+    const { title, editorState } = this.state;
+    alert(`Your state values: \n
+          title: ${title} \n
+          description: ${editorState}
+`);
+  };
 
   onChange = editorState => {
     const MAX_LENGTH = 10;
@@ -40,6 +47,12 @@ class Articles extends Component {
     if (length <= MAX_LENGTH) {
       this.setState({ editorState });
     }
+  };
+
+  onEditorStateChange = editorState => {
+    this.setState({
+      editorState
+    });
   };
 
   render() {
@@ -74,8 +87,10 @@ class Articles extends Component {
                   toolbarClassName="rdw-storybook--toolbar"
                   editorClassName="rdw-storybook-editor"
                   hashtag={{ hashCharacter: "#", separator: " " }}
-                  value={this.state.description}
-                  onChange={e => this.setState({ description: e.target.value })}
+                  // value={draftToHtml(
+                  //   convertToRaw(editorState.getCurrentContent())
+                  // )}
+                  onEditorStateChange={this.onEditorStateChange}
                   toolbar={{
                     options: ["inline", "emoji", "image", "textAlign", "link"],
                     inline: { inDropdown: true },
